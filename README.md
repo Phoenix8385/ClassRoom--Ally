@@ -1,108 +1,103 @@
-# Classroom Ally — AI-Based Real-Time Speech-to-Sign Language System
+# classroom-ally
 
-Classroom Ally is a real-time AI-powered accessibility platform designed to help deaf and hard-of-hearing students understand live classroom lectures through automatic speech-to-sign language translation.
+> Real-time sign-language interpretation and avatar relay for inclusive classrooms.
 
-The system captures classroom speech using a laptop or mobile microphone, converts speech into text using Whisper ASR, transforms English sentences into Indian Sign Language (ISL) gloss grammar, and displays sign output through animated avatars and sign mappings in real time.
+---
 
-## Key Features
+## Architecture
 
-* Real-time speech recognition using Whisper ASR
-* English-to-ISL gloss conversion engine
-* WebSocket-based low-latency streaming architecture
-* Real-time caption generation
-* Sign language avatar rendering using Three.js / Unity
-* Fingerspelling fallback for unknown words
-* Human-in-the-loop feedback correction system
-* Modular AI pipeline for future Conformer integration
-* GPU acceleration support using NVIDIA CUDA
-* Fully deployable cloud-ready architecture
+```
+  🎤 Microphone / Camera
+         │
+         ▼
+┌─────────────────────┐
+│   Next.js Frontend  │  ◄── Teacher & student web UI
+│  (apps/web)         │
+└────────┬────────────┘
+         │  WebSocket / REST
+         ▼
+┌─────────────────────┐
+│   FastAPI  API      │  ◄── Auth, session management, task queue
+│  (services/api)     │
+└──┬──────────────────┘
+   │            │
+   ▼            ▼
+┌──────┐   ┌─────────┐
+│ Redis│   │Postgres │   ◄── Job queue / cache + persistent storage
+└──────┘   └─────────┘
+   │
+   ▼
+┌─────────────────────┐
+│  AI Pipeline        │
+│  ┌───────────────┐  │
+│  │ ASR (Whisper) │  │  ◄── Speech → text
+│  └──────┬────────┘  │
+│         ▼           │
+│  ┌───────────────┐  │
+│  │  ISL Model    │  │  ◄── Text → Indian Sign Language gloss
+│  └──────┬────────┘  │
+│         ▼           │
+│  ┌───────────────┐  │
+│  │Avatar Renderer│  │  ◄── Gloss → animated 3-D avatar
+│  └───────────────┘  │
+└─────────────────────┘
+         │
+         ▼
+  🧏 Signed Avatar overlay
+     streamed to student
+```
+
+---
 
 ## Tech Stack
 
-### Frontend
+| Layer      | Technology                                         |
+|------------|----------------------------------------------------|
+| Frontend   | Next.js 14, TypeScript, Tailwind CSS, Three.js     |
+| Backend    | FastAPI, Python 3.12, Celery, Pydantic v2          |
+| AI / ML    | OpenAI Whisper, PyTorch, ONNX Runtime, MediaPipe   |
+| Database   | PostgreSQL 16, Redis 7, SQLAlchemy 2, Alembic      |
+| Deploy     | Docker, Vercel (web), Railway / Render (API), pnpm |
 
-* Next.js 15
-* React 19
-* Tailwind CSS
-* Zustand
-* Three.js / React Three Fiber
-
-### Backend
-
-* FastAPI
-* Python 3.11
-* WebSockets
-* AsyncIO
-* SQLAlchemy
-
-### AI / ML
-
-* Whisper ASR
-* spaCy NLP
-* MediaPipe
-* PyTorch
-* Silero VAD
-
-### Database & Deployment
-
-* PostgreSQL
-* Redis
-* Docker
-* Vercel
-* Render
-* RunPod
-
-## System Architecture
-
-```text
-Teacher Speech
-      ↓
-Microphone Capture
-      ↓
-Whisper Speech Recognition
-      ↓
-English Transcript
-      ↓
-ISL Gloss Conversion
-      ↓
-Sign Mapping Engine
-      ↓
-Avatar / Sign Rendering
-      ↓
-Real-Time Classroom Accessibility
-```
-
-## Project Goals
-
-* Improve classroom accessibility for deaf students
-* Reduce communication barriers in education
-* Build a scalable real-time assistive AI platform
-* Demonstrate practical AI system engineering
-* Create a deployable and production-oriented architecture
-
-## Engineering Highlights
-
-* Real-time streaming pipeline
-* Low-latency AI inference
-* Modular microservice-style architecture
-* GPU-accelerated speech processing
-* Human feedback correction loop
-* Resume-grade full-stack AI engineering project
-
-## Future Improvements
-
-* Conformer-based streaming ASR
-* Emotion-aware signing
-* Multi-language support
-* Personalized signing styles
-* Edge-device optimization
-* Multi-classroom scalability
+---
 
 ## Team
 
-Department of Artificial Intelligence & Machine Learning
-DSATM Bengaluru — 2025-26
+| Name              | Role                              |
+|-------------------|-----------------------------------|
+| Aanya Sharma      | Full-Stack Lead & Project Manager |
+| Rohan Verma       | AI / ML Engineer (ISL Model)      |
+| Priya Nair        | Backend Engineer (API & Queue)    |
+| Arjun Mehta       | Frontend Engineer (UI & Avatar)   |
+| Sneha Kulkarni    | Data Engineer & QA                |
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone and install all workspace dependencies
+git clone https://github.com/your-org/classroom-ally.git && cd classroom-ally
+pnpm install
+
+# 2. Copy environment templates and fill in values
+cp services/api/.env.example services/api/.env
+cp apps/web/.env.example apps/web/.env.local
+
+# 3. Spin up Postgres + Redis + API via Docker
+docker compose up -d
+
+# 4. Run database migrations
+docker compose exec api alembic upgrade head
+
+# 5. Start the Next.js dev server
+pnpm --filter web dev
+```
+
+The web app will be available at **http://localhost:3000** and the API at **http://localhost:8000/docs**.
+
+---
 
 ## License
 
-MIT License
+MIT © 2024 classroom-ally contributors. See [LICENSE](./LICENSE) for details.

@@ -1,0 +1,103 @@
+# ──────────────────────────────────────────
+# Python
+# ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.venv/
+venv/
+env/
+.env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+*.cover
+coverage.xml
+
+# ──────────────────────────────────────────
+# Node / JavaScript / TypeScript
+# ──────────────────────────────────────────
+node_modules/
+.next/
+dist/
+out/
+.vercel/
+.turbo/
+*.tsbuildinfo
+.cache/
+.parcel-cache/
+.eslintcache
+
+# ──────────────────────────────────────────
+# Environment & Secrets
+# ──────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+*.pem
+*.key
+
+# ──────────────────────────────────────────
+# Large Data & Model Files
+# ──────────────────────────────────────────
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.h5
+*.pkl
+data/isl_clips/
+data/raw/
+data/processed/
+checkpoints/
+
+# ──────────────────────────────────────────
+# OS
+# ──────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ──────────────────────────────────────────
+# IDE & Editors
+# ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ──────────────────────────────────────────
+# Misc
+# ──────────────────────────────────────────
+*.log
+logs/
+*.tmp
+*.bak
+.yarn/
+!.yarn/releases
+!.yarn/plugins
