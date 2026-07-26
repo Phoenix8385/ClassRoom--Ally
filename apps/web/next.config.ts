@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname, "..", ".."),
   },
+  // Carried over from the former next.config.mjs (v0.dev export).
+  // NOTE: ignoreBuildErrors hides real TS errors from `next build` — worth
+  // removing once the codebase typechecks cleanly under the project config.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {

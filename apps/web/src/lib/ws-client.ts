@@ -322,6 +322,8 @@ export interface UseClassroomWS {
   connect: () => void;
   disconnect: () => void;
   status: WSStatus;
+  /** The underlying client, e.g. to hand to `startCapture`. Null until mounted. */
+  getClient: () => WSClient | null;
 }
 
 export function useClassroomWS(sessionId: string): UseClassroomWS {
@@ -383,6 +385,7 @@ export function useClassroomWS(sessionId: string): UseClassroomWS {
 
   const connect = useCallback(() => clientRef.current?.connect(), []);
   const disconnect = useCallback(() => clientRef.current?.disconnect(), []);
+  const getClient = useCallback(() => clientRef.current, []);
 
-  return { connect, disconnect, status };
+  return { connect, disconnect, status, getClient };
 }

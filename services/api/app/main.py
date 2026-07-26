@@ -30,7 +30,12 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     yield
 
-    await state.redis_client.aclose()
+    # redis-py 5.0.0 exposes async close() as close(); aclose() was added in 5.0.1
+    aclose = getattr(state.redis_client, "aclose", None)
+    if aclose is not None:
+        await aclose()
+    else:
+        await state.redis_client.close()
     logger.info("Redis connection closed.")
 
 
