@@ -1,6 +1,8 @@
 # classroom-ally
 
-[![CI](https://github.com/your-org/classroom-ally/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/classroom-ally/actions/workflows/ci.yml)
+[![CI](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/ci.yml/badge.svg)](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/ci.yml)
+[![Deploy Frontend](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/deploy-frontend.yml/badge.svg)](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/deploy-frontend.yml)
+[![Deploy Backend](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/deploy-backend.yml/badge.svg)](https://github.com/Phoenix8385/ClassRoom--Ally/actions/workflows/deploy-backend.yml)
 
 > Real-time sign-language interpretation and avatar relay for inclusive classrooms.
 

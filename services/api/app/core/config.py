@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import AnyUrl
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -22,4 +21,6 @@ class Settings(BaseSettings):
     ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
 
 
-settings = Settings()
+# Values are supplied at runtime from the environment / .env file, which mypy
+# cannot see — hence the required-field arguments look "missing" to it.
+settings = Settings()  # type: ignore[call-arg]

@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import AsyncGenerator
 
 import redis.asyncio as aioredis
 from fastapi import FastAPI, Request
@@ -12,7 +12,7 @@ from fastapi.responses import JSONResponse
 from app.core import state
 from app.core.config import settings
 from app.core.database import create_tables
-from app.routers import health, sessions, signs, ws
+from app.routers import feedback, health, sessions, signs, ws
 
 logger = logging.getLogger(__name__)
 
@@ -65,5 +65,6 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
 
 app.include_router(health.router)
 app.include_router(sessions.router)
+app.include_router(feedback.router)
 app.include_router(signs.router)
 app.include_router(ws.router)

@@ -1,4 +1,5 @@
 import asyncio
+
 import websockets
 
 SESSION_ID = "d7f43a1a-3087-4785-a265-eb58a8748e8f"
