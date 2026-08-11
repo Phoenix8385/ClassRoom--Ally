@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Github, Play } from "lucide-react";
+import { ArrowRight, Github, Loader2, Play } from "lucide-react";
+
+import { createSession } from "@/lib/api";
 
 const GITHUB_URL = "https://github.com/Phoenix8385/ClassRoom--Ally";
 
@@ -16,11 +18,24 @@ const TEAM = [
 
 export default function Home() {
   const router = useRouter();
+  const [teacherName, setTeacherName] = useState("");
+  const [starting, setStarting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const startSession = useCallback(() => {
-    const sessionId = crypto.randomUUID();
-    router.push(`/classroom?session=${sessionId}`);
-  }, [router]);
+  // The session must exist in Postgres before the classroom opens: the socket
+  // resolves the id against the DB and rejects anything it cannot find.
+  const startSession = useCallback(async () => {
+    if (starting) return;
+    setStarting(true);
+    setError(null);
+    try {
+      const session = await createSession(teacherName.trim() || "Teacher");
+      router.push(`/classroom?session=${session.id}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not start a session.");
+      setStarting(false); // stays true on success so the button can't double-fire
+    }
+  }, [router, starting, teacherName]);
 
   return (
     <div className="flex min-h-screen flex-col bg-slate-950 text-slate-100">
@@ -41,17 +56,45 @@ export default function Home() {
           live on screen — so deaf and hard-of-hearing students never miss a word.
         </p>
 
-        <button
-          type="button"
-          onClick={startSession}
-          className="group flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-600"
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            void startSession();
+          }}
+          className="flex w-full max-w-sm flex-col items-center gap-3"
         >
-          Start Classroom Session
-          <ArrowRight
-            size={18}
-            className="transition-transform group-hover:translate-x-0.5"
+          <input
+            type="text"
+            value={teacherName}
+            onChange={(e) => setTeacherName(e.target.value)}
+            placeholder="Teacher name (optional)"
+            aria-label="Teacher name"
+            disabled={starting}
+            className="w-full rounded-full border border-slate-800 bg-slate-900/60 px-5 py-3 text-center text-base text-slate-100 placeholder:text-slate-500 focus:border-blue-500 focus:outline-none disabled:opacity-60"
           />
-        </button>
+
+          <button
+            type="submit"
+            disabled={starting}
+            className="group flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-600 disabled:cursor-not-allowed disabled:bg-blue-500/50"
+          >
+            {starting ? "Starting…" : "Start Classroom Session"}
+            {starting ? (
+              <Loader2 size={18} className="animate-spin" />
+            ) : (
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            )}
+          </button>
+
+          {error && (
+            <p role="alert" className="text-sm text-red-400">
+              {error}
+            </p>
+          )}
+        </form>
 
         <a
           href={GITHUB_URL}

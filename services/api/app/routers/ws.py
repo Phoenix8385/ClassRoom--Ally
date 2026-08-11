@@ -5,7 +5,7 @@ import json
 import logging
 import time
 import uuid
-from collections.abc import Callable
+from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from typing import Literal
@@ -19,7 +19,7 @@ from app.models.session import ClassroomSession
 from app.services import sign_mapper
 from app.services.asr import SileroVAD, WhisperService
 from app.services.gloss import GlossService
-from app.services.sign_mapper import SignAction
+from app.services.sign_mapper import MappingResult, SignAction
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +37,11 @@ POLL_INTERVAL: float = 0.1      # how often the pipeline re-checks the silence c
 HEARTBEAT_INTERVAL: float = 30.0
 PONG_TIMEOUT: float = 10.0
 QUEUE_MAX: int = 20
+
+# Application close code for "this session id is not usable". Mirrored by
+# FATAL_CLOSE_CODES in apps/web/src/lib/ws-client.ts, which stops reconnecting
+# when it sees this — retrying an unknown session can never succeed.
+WS_SESSION_REJECTED: int = 4004
 
 
 # ── Pydantic message models ───────────────────────────────────────────────────
@@ -126,7 +131,7 @@ class PipelineServices:
     asr: WhisperService
     vad: SileroVAD
     gloss: GlossService
-    map_signs: Callable[[list[str]], list[SignAction]]
+    map_signs: Callable[[list[str]], Awaitable[MappingResult]]
 
 
 _gloss_service: GlossService | None = None
@@ -262,12 +267,21 @@ async def _process_audio(conn: Connection, services: PipelineServices) -> None:
         ))
 
         map_t0 = time.monotonic()
-        actions = services.map_signs(tokens)
+        mapping = await services.map_signs(tokens)
         map_ms = int((time.monotonic() - map_t0) * 1000)
+
+        if mapping.unknown_words:
+            logger.info(
+                "Fingerspelling %d/%d token(s) (session=%s): %s",
+                len(mapping.unknown_words),
+                mapping.total_tokens,
+                conn.session_id,
+                ", ".join(mapping.unknown_words),
+            )
 
         await _send(ws, SignSequenceMsg(
             segment_id=segment_id,
-            actions=actions,
+            actions=mapping.actions,
             timing=TimingInfo(
                 asr_ms=segment_asr_ms,
                 gloss_ms=gloss_ms,
@@ -354,27 +368,42 @@ async def _process_audio(conn: Connection, services: PipelineServices) -> None:
 
 # ── Endpoint ──────────────────────────────────────────────────────────────────
 
+async def _reject(websocket: WebSocket, message: str, code: str) -> None:
+    """Name the reason on an accepted socket, then close with a fatal code."""
+    try:
+        await _send(websocket, ErrorMsg(message=message, code=code))
+    except Exception:  # pragma: no cover — socket already gone
+        pass
+    await websocket.close(code=WS_SESSION_REJECTED)
+
+
 @router.websocket("/ws/stream/{session_id}")
 async def websocket_stream(
     websocket: WebSocket,
     session_id: str,
     db: AsyncSession = Depends(get_db),
 ) -> None:
+    # Accept before validating. Closing during the handshake surfaces to the
+    # browser as a bare HTTP 403 — no close code, no body — so the client cannot
+    # tell "this session id will never work" from "the server just restarted",
+    # and its backoff loop retries a rejection that can never succeed. Accepting
+    # first costs one round trip and lets us say exactly what went wrong.
+    await websocket.accept()
+
     try:
         session_uuid = uuid.UUID(str(session_id))
     except (ValueError, AttributeError, TypeError):
         logger.info("Rejecting WebSocket: malformed session id %r", session_id)
-        await websocket.close(code=4004)
+        await _reject(websocket, "Malformed session id", "bad_session_id")
         return
 
     session = await db.get(ClassroomSession, session_uuid)
     if session is None:
         logger.info("Rejecting WebSocket: unknown session %s", session_uuid)
-        await websocket.close(code=4004)
+        await _reject(websocket, "Unknown session", "unknown_session")
         return
 
     key = str(session_uuid)
-    await websocket.accept()
     logger.info("WebSocket connected: session=%s", key)
 
     await _send(websocket, ConnectedMsg(

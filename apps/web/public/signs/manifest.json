@@ -1,0 +1,8 @@
+{
+  "hello": {
+    "path": "/signs/hello.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "greeting"
+  }
+}

@@ -11,9 +11,15 @@ export type SignActionType = "clip" | "keypoints" | "fingerspell";
 export interface SignAction {
   token: string;
   type: SignActionType;
+  /** Server-side path ("data/isl_clips/hello.mp4") — not loadable by the browser. */
   clip_path: string | null;
+  /** Published path under public/signs ("/signs/hello.mp4"). Use this to play. */
+  clip_web_path?: string | null;
   letters: string[] | null;
   duration_ms: number;
+  /** Canonical glossary word the token resolved to; "" when fingerspelled. */
+  word?: string;
+  found_in_glossary?: boolean;
 }
 
 export interface Timing {
@@ -105,6 +111,13 @@ const MAX_DELAY_MS = 30_000;
 const LATENCY_WINDOW = 10;
 
 /**
+ * Close codes that reconnecting cannot fix. 4004 is WS_SESSION_REJECTED in
+ * services/api/app/routers/ws.py — the session id is malformed or absent from
+ * the database, so every retry would be refused identically.
+ */
+const FATAL_CLOSE_CODES: ReadonlySet<number> = new Set([4004]);
+
+/**
  * Exponential backoff: 1s, 2s, 4s, 8s, 16s, then capped at 30s.
  * `attempt` is 0-indexed.
  */
@@ -149,6 +162,7 @@ export class WSClient {
   private reconnectAttempts = 0;
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
   private manualClose = false;
+  private fatalClose = false;
   private status: WSStatus = "idle";
   private latencySamples: number[] = [];
 
@@ -166,8 +180,14 @@ export class WSClient {
 
   connect(): void {
     this.manualClose = false;
+    this.fatalClose = false; // an explicit call is the user retrying on purpose
     this.reconnectAttempts = 0;
     this.openSocket();
+  }
+
+  /** True once the server refused this session id outright (see FATAL_CLOSE_CODES). */
+  get isFatal(): boolean {
+    return this.fatalClose;
   }
 
   disconnect(): void {
@@ -208,15 +228,22 @@ export class WSClient {
         this.setStatus("error");
       }
     };
-    ws.onclose = () => {
-      this.handleClose();
+    ws.onclose = (event: CloseEvent) => {
+      this.handleClose(event);
     };
   }
 
-  private handleClose(): void {
+  private handleClose(event?: { code?: number; reason?: string }): void {
     this.socket = null;
     if (this.manualClose) {
       this.setStatus("disconnected");
+      return;
+    }
+    if (event?.code !== undefined && FATAL_CLOSE_CODES.has(event.code)) {
+      // The server already sent an `error` frame explaining itself; retrying
+      // would just replay the same rejection on a backoff curve.
+      this.fatalClose = true;
+      this.setStatus("error");
       return;
     }
     if (this.reconnectAttempts >= this.maxAttempts) {

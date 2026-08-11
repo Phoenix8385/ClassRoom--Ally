@@ -1,0 +1,13 @@
+{
+  "total": 1,
+  "words": [
+    "hello"
+  ],
+  "categories": {
+    "greeting": [
+      "hello"
+    ]
+  },
+  "last_updated": "2026-08-10T23:02:13+05:30",
+  "coverage_pct": 0.3
+}

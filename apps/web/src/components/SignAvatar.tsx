@@ -411,8 +411,26 @@ interface ClipOverlayProps {
   onEnded: () => void;
 }
 
+/**
+ * Resolve a clip to something the browser can actually fetch.
+ *
+ * `clip_web_path` is what sync_clips.py publishes under public/signs.
+ * `clip_path` is the server's own copy ("data/isl_clips/hello.mp4") and 404s
+ * here, so fall back to its filename rather than its path. Last resort, derive
+ * the filename from the gloss token: tokens arrive uppercased ("GOOD MORNING")
+ * while clips are lowercase and underscored (good_morning.mp4).
+ */
+function clipSrc(action: SignAction): string {
+  if (action.clip_web_path) return action.clip_web_path;
+
+  const filename = action.clip_path?.split("/").pop();
+  if (filename) return `/signs/${filename}`;
+
+  return `/signs/${action.token.toLowerCase().trim().replace(/\s+/g, "_")}.mp4`;
+}
+
 function ClipOverlay({ action, onEnded }: ClipOverlayProps) {
-  const src = action.clip_path ?? `/signs/${action.token}.mp4`;
+  const src = clipSrc(action);
   return (
     <video
       // key forces a fresh element (and autoplay restart) per clip

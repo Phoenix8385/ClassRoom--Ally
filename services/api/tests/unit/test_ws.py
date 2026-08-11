@@ -27,7 +27,7 @@ from app.routers.ws import (
     websocket_stream,
 )
 from app.services.asr import TranscriptResult
-from app.services.sign_mapper import SignAction
+from app.services.sign_mapper import MappingResult, SignAction
 
 # ── Fixtures / doubles ───────────────────────────────────────────────────────
 
@@ -54,13 +54,20 @@ def _pipeline(
     gloss = AsyncMock()
     gloss.convert.return_value = tokens if tokens is not None else ["I", "WATER", "WANT"]
 
-    def map_signs(toks: list[str]) -> list[SignAction]:
-        return [
+    async def map_signs(toks: list[str]) -> MappingResult:
+        actions = [
             SignAction(
                 token=t, type="fingerspell", clip_path=None, letters=list(t), duration_ms=400
             )
             for t in toks
         ]
+        return MappingResult(
+            actions=actions,
+            coverage=0.0,
+            unknown_words=toks,
+            total_tokens=len(toks),
+            covered_tokens=0,
+        )
 
     return PipelineServices(asr=asr, vad=vad, gloss=gloss, map_signs=map_signs), asr
 
@@ -161,20 +168,35 @@ def test_message_models_carry_type_and_timing():
     }
 
 
-# ── 2. Unknown / malformed session → 4004, never accepted ────────────────────
+# ── 2. Unknown / malformed session → accepted, told why, closed 4004 ─────────
+
+
+def _sole_error_frame(ws) -> dict:
+    """The one JSON frame a rejected socket should have been sent."""
+    ws.send_text.assert_awaited_once()
+    return json.loads(ws.send_text.await_args.args[0])
 
 
 @pytest.mark.asyncio
-async def test_unknown_and_malformed_session_close_4004_without_accept():
-    """Handler closes with 4004 and never accepts for ids it cannot resolve."""
+async def test_unknown_and_malformed_session_are_told_why_then_closed_4004():
+    """Rejections are accepted first so the client receives a real close code.
+
+    Closing mid-handshake reaches the browser as an opaque HTTP 403 — no code,
+    no body — which the reconnect loop cannot distinguish from an outage.
+    """
     missing_ws = AsyncMock()
     db = AsyncMock()
     db.get.return_value = None  # session not in DB
 
     await websocket_stream(missing_ws, str(uuid.uuid4()), db)
 
+    missing_ws.accept.assert_awaited_once()
     missing_ws.close.assert_awaited_once_with(code=4004)
-    missing_ws.accept.assert_not_awaited()
+    assert _sole_error_frame(missing_ws) == {
+        "type": "error",
+        "message": "Unknown session",
+        "code": "unknown_session",
+    }
 
     # A non-UUID path param is rejected the same way, before touching the DB.
     bad_ws = AsyncMock()
@@ -182,8 +204,9 @@ async def test_unknown_and_malformed_session_close_4004_without_accept():
 
     await websocket_stream(bad_ws, "not-a-uuid", bad_db)
 
+    bad_ws.accept.assert_awaited_once()
     bad_ws.close.assert_awaited_once_with(code=4004)
-    bad_ws.accept.assert_not_awaited()
+    assert _sole_error_frame(bad_ws)["code"] == "bad_session_id"
     bad_db.get.assert_not_awaited()
     assert active_connections == {}
 

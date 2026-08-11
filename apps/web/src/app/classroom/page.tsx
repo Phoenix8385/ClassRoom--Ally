@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 import AvatarPanel from "@/components/AvatarPanel";
@@ -96,6 +97,26 @@ function ClassroomSession() {
         <p className="text-sm">
           Missing session. Open a classroom from the home page.
         </p>
+      </div>
+    );
+  }
+
+  // The socket gave up: either the server refused this session id outright
+  // (close 4004) or the backoff schedule ran out. Both leave the page unusable,
+  // so say so rather than sitting on a spinner that will never resolve.
+  if (status === "error") {
+    return (
+      <div className="flex h-screen flex-col items-center justify-center gap-3 bg-slate-950 px-6 text-center text-slate-300">
+        <p className="text-sm">
+          This session is not available. The link may be stale, or the server may
+          be unreachable.
+        </p>
+        <Link
+          href="/"
+          className="text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+        >
+          Start a new session
+        </Link>
       </div>
     );
   }

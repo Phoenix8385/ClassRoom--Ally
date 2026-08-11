@@ -56,9 +56,9 @@ class MockWebSocket {
     this.onmessage?.({ data });
   }
 
-  simulateServerClose(): void {
+  simulateServerClose(code?: number): void {
     this.readyState = MockWebSocket.CLOSED;
-    this.onclose?.({});
+    this.onclose?.(code === undefined ? {} : { code });
   }
 
   static reset(): void {
@@ -183,6 +183,36 @@ describe("WSClient reconnection", () => {
 
     expect(MockWebSocket.instances.length).toBe(before);
     expect(statuses[statuses.length - 1]).toBe("error");
+  });
+
+  it("never retries a fatal 4004 rejection", () => {
+    const statuses: string[] = [];
+    const client = makeClient({ onStatusChange: (s: string) => statuses.push(s) });
+    client.connect();
+
+    // The server refused the session id; every retry would be refused too.
+    MockWebSocket.last().simulateServerClose(4004);
+    vi.advanceTimersByTime(120_000);
+
+    expect(MockWebSocket.instances).toHaveLength(1);
+    expect(statuses[statuses.length - 1]).toBe("error");
+    expect(client.isFatal).toBe(true);
+
+    // An explicit reconnect is the user retrying on purpose, so it is allowed.
+    client.connect();
+    expect(MockWebSocket.instances).toHaveLength(2);
+    expect(client.isFatal).toBe(false);
+  });
+
+  it("still retries a close that carries no code", () => {
+    const client = makeClient();
+    client.connect();
+
+    MockWebSocket.last().simulateServerClose(); // e.g. transient network drop
+    vi.advanceTimersByTime(1_000);
+
+    expect(MockWebSocket.instances).toHaveLength(2);
+    expect(client.isFatal).toBe(false);
   });
 
   it("resets the attempt counter after a successful reconnect", () => {
