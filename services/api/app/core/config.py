@@ -20,6 +20,11 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
 
+    # Whisper checkpoint to load. "base" keeps a CPU-only laptop comfortably
+    # faster than real time; GPU deployments set WHISPER_MODEL=large-v3-turbo,
+    # which needs faster-whisper >= 1.1.0 (see ADR-003).
+    WHISPER_MODEL: str = "base"
+
 
 # Values are supplied at runtime from the environment / .env file, which mypy
 # cannot see — hence the required-field arguments look "missing" to it.

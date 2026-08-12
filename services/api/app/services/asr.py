@@ -12,9 +12,16 @@ from typing import Any
 import numpy as np
 import soundfile as sf
 
+from app.core.config import settings
+
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL_SIZE = "large-v3-turbo"
+DEFAULT_MODEL_SIZE = settings.WHISPER_MODEL
+
+# Loaded when the configured checkpoint is not one this faster-whisper build
+# knows about — an unrecognised name otherwise takes the whole pipeline down at
+# the first window of audio, which is a bad way to discover a version mismatch.
+_FALLBACK_MODEL_SIZE = "base"
 
 # Silero VAD is a JIT model with a fixed input width: it accepts exactly
 # 512 samples at 16 kHz (256 at 8 kHz) and raises on anything else.
@@ -59,6 +66,7 @@ def pcm16_to_float32(audio_bytes: bytes) -> np.ndarray:
 
 def _load_model(model_size: str = DEFAULT_MODEL_SIZE) -> tuple[Any, str]:
     """Return (model, device). Tries CUDA int8_float16, falls back to CPU int8."""
+    import faster_whisper
     from faster_whisper import WhisperModel
 
     try:
@@ -77,7 +85,28 @@ def _load_model(model_size: str = DEFAULT_MODEL_SIZE) -> tuple[Any, str]:
         # WhisperModel itself; either way CPU is the usable path.
         logger.warning("CUDA unavailable (%s) — falling back to CPU", exc)
 
-    model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    try:
+        model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    except ValueError:
+        # faster-whisper only accepts checkpoint names its own build knows;
+        # "large-v3-turbo", for instance, arrived in 1.1.0. Without this the
+        # mismatch surfaces as a dead audio pipeline on the first window.
+        if model_size == _FALLBACK_MODEL_SIZE:
+            raise
+        logger.exception(
+            "Whisper checkpoint %r is not available in faster-whisper %s — "
+            "loading %r instead. Set WHISPER_MODEL to a supported name.",
+            model_size,
+            getattr(faster_whisper, "__version__", "?"),
+            _FALLBACK_MODEL_SIZE,
+        )
+        model = WhisperModel(_FALLBACK_MODEL_SIZE, device="cpu", compute_type="int8")
+        logger.info(
+            "WhisperModel '%s' loaded on device=cpu compute_type=int8",
+            _FALLBACK_MODEL_SIZE,
+        )
+        return model, "cpu"
+
     logger.info("WhisperModel '%s' loaded on device=cpu compute_type=int8", model_size)
     return model, "cpu"
 

@@ -65,7 +65,7 @@ SEARCH_QUERIES: tuple[str, ...] = (
 )
 SEARCH_RESULTS_PER_QUERY = 5
 
-MAX_DURATION_SECONDS = 60
+MAX_DURATION_SECONDS = 30
 TRIM_SECONDS = 4
 MIN_FILE_BYTES = 10 * 1024
 
@@ -143,6 +143,7 @@ def setup_logging(verbose: bool = False) -> dict[str, str]:
 
     console = logging.StreamHandler(sys.stdout)
     console.setFormatter(logging.Formatter("%(message)s"))
+    console.setLevel(logging.DEBUG if verbose else logging.INFO)
 
     handlers: list[logging.Handler] = [console]
     try:
@@ -150,12 +151,14 @@ def setup_logging(verbose: bool = False) -> dict[str, str]:
         file_handler.setFormatter(
             logging.Formatter("%(asctime)s %(levelname)-7s %(message)s")
         )
+        # The log file always keeps the debug trail — which queries ran, which
+        # candidates were rejected — even when the console stays quiet.
+        file_handler.setLevel(logging.DEBUG)
         handlers.append(file_handler)
     except OSError as exc:  # pragma: no cover - permissions dependent
-        console.setLevel(logging.INFO)
         logger.warning("Could not open %s (%s) — logging to console only", LOG_PATH, exc)
 
-    logger.setLevel(logging.DEBUG if verbose else logging.INFO)
+    logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
     for handler in handlers:
         logger.addHandler(handler)
@@ -373,6 +376,24 @@ def _fingerprint(path: Path) -> str:
     return digest.hexdigest()
 
 
+def build_fingerprint_index(glossary: dict[str, dict]) -> dict[str, str]:
+    """Fingerprint the clips already on disk.
+
+    Without this the duplicate check only sees the current run, and a word
+    fetched today would happily re-download the video a word fetched yesterday
+    already used.
+    """
+    index: dict[str, str] = {}
+    for word in glossary:
+        path = clip_path_for(word, glossary)
+        if not path.exists():
+            continue
+        fingerprint = _fingerprint(path)
+        if fingerprint:
+            index.setdefault(fingerprint, word)
+    return index
+
+
 def _record_download(
     glossary: dict[str, dict], word: str, clip: Path, result: SearchResult
 ) -> None:
@@ -410,6 +431,7 @@ def download_word(
 
     destination.parent.mkdir(parents=True, exist_ok=True)
     temp_stem = CLIPS_DIR / f".temp_{slugify(word)}"
+    duplicates_rejected = 0
 
     try:
         for query_template in SEARCH_QUERIES:
@@ -465,19 +487,29 @@ def download_word(
                     destination.unlink(missing_ok=True)
                     continue
 
+                # Search happily returns one generic ISLRTC video for many
+                # different words. Two words with byte-identical clips cannot
+                # both be right, so reject the repeat and try the next result.
                 fingerprint = _fingerprint(destination)
                 previous = seen_fingerprints.get(fingerprint)
                 if fingerprint and previous and previous != word:
-                    logger.warning(
-                        "  %r downloaded the same video as %r — likely a bad match, review it",
-                        word, previous,
+                    logger.debug(
+                        "  rejecting %s — same video as %r", result.url, previous
                     )
-                elif fingerprint:
+                    destination.unlink(missing_ok=True)
+                    duplicates_rejected += 1
+                    continue
+                if fingerprint:
                     seen_fingerprints[fingerprint] = word
 
                 _record_download(glossary, word, destination, result)
                 return WordOutcome(word, "downloaded", result.title, size, result)
 
+        if duplicates_rejected:
+            return WordOutcome(
+                word, "failed",
+                f"only duplicates of other words ({duplicates_rejected} rejected)",
+            )
         return WordOutcome(word, "failed", "no video found")
 
     except Exception as exc:  # a single word must never take the run down
@@ -553,25 +585,21 @@ def _human_duration(seconds: float) -> str:
     return f"{minutes}m {secs:02d}s"
 
 
-def _progress_line(symbols: dict[str, str], index: int, total: int, outcome: WordOutcome) -> str:
-    symbol = {
-        "downloaded": symbols["ok"],
-        "exists": symbols["skip"],
-        "failed": symbols["fail"],
-        "dry-run": symbols["dry"],
-    }[outcome.status]
-
-    if outcome.status == "downloaded":
-        detail = f"{_human_size(outcome.size_bytes)} saved"
-    elif outcome.status == "exists":
-        detail = "already exists"
-    elif outcome.status == "dry-run":
-        detail = outcome.detail or "would download"
-    else:
-        detail = outcome.detail or "failed"
-
+def _progress_prefix(index: int, total: int, word: str) -> str:
+    """The half-line printed before a word is fetched: "Downloading 1/300: hello... "."""
     width = len(str(total))
-    return f"{symbol} [{index:>{width}}/{total}] {outcome.word:<22} → {detail}"
+    return f"Downloading {index:>{width}}/{total}: {word}... "
+
+
+def _result_text(symbols: dict[str, str], outcome: WordOutcome) -> str:
+    """The half-line printed once the word is done: "✅ Done (1.2MB)"."""
+    if outcome.status == "downloaded":
+        return f"{symbols['ok']} Done ({_human_size(outcome.size_bytes)})"
+    if outcome.status == "exists":
+        return f"{symbols['skip']} Skipped (already exists)"
+    if outcome.status == "dry-run":
+        return f"{symbols['dry']} {outcome.detail or 'would download'}"
+    return f"{symbols['fail']} Failed ({outcome.detail or 'unknown error'})"
 
 
 def print_summary(
@@ -672,12 +700,22 @@ def main(argv: list[str] | None = None) -> int:
     logger.info("")
 
     outcomes: list[WordOutcome] = []
-    seen_fingerprints: dict[str, str] = {}
+    seen_fingerprints: dict[str, str] = {} if args.dry_run else build_fingerprint_index(glossary)
     previously_failed = read_failed_words()
     started = time.monotonic()
     downloads_done = 0
 
+    # Fetching one word takes seconds, so the line opens before the work starts
+    # and is completed after — except under --verbose, where yt-dlp's own chatter
+    # would land in the middle of it.
+    inline = not args.dry_run and not args.verbose
+
     for index, word in enumerate(words, start=1):
+        prefix = _progress_prefix(index, total, word)
+        if inline:
+            sys.stdout.write(prefix)
+            sys.stdout.flush()
+
         if args.dry_run:
             destination = clip_path_for(word, glossary)
             status = "exists" if destination.exists() else "dry-run"
@@ -692,7 +730,13 @@ def main(argv: list[str] | None = None) -> int:
             )
 
         outcomes.append(outcome)
-        logger.info(_progress_line(symbols, index, total, outcome))
+        result = _result_text(symbols, outcome)
+        if inline:
+            sys.stdout.write(result + "\n")
+            sys.stdout.flush()
+            logger.debug("%s%s", prefix, result)  # the log file keeps the whole line
+        else:
+            logger.info("%s%s", prefix, result)
 
         if outcome.status == "downloaded":
             downloads_done += 1

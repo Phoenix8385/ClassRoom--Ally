@@ -48,4 +48,3 @@ tomorrow
 yesterday
 now
 later
-good

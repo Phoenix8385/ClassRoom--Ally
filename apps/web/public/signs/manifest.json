@@ -1,8 +1,296 @@
 {
+  "answer": {
+    "path": "/signs/answer.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "book": {
+    "path": "/signs/book.mp4",
+    "size_bytes": 354315,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "class": {
+    "path": "/signs/class.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "close": {
+    "path": "/signs/close.mp4",
+    "size_bytes": 162429,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "come": {
+    "path": "/signs/come.mp4",
+    "size_bytes": 1870656,
+    "duration_ms": 4000,
+    "category": "verb"
+  },
+  "correct": {
+    "path": "/signs/correct.mp4",
+    "size_bytes": 3372530,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "explain": {
+    "path": "/signs/explain.mp4",
+    "size_bytes": 1710661,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "go": {
+    "path": "/signs/go.mp4",
+    "size_bytes": 106690,
+    "duration_ms": 4000,
+    "category": "verb"
+  },
+  "good": {
+    "path": "/signs/good.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "adjective"
+  },
+  "good afternoon": {
+    "path": "/signs/good_afternoon.mp4",
+    "size_bytes": 2618176,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "good morning": {
+    "path": "/signs/good_morning.mp4",
+    "size_bytes": 119121,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "goodbye": {
+    "path": "/signs/goodbye.mp4",
+    "size_bytes": 2477672,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
   "hello": {
     "path": "/signs/hello.mp4",
     "size_bytes": 2263341,
     "duration_ms": 4000,
     "category": "greeting"
+  },
+  "help": {
+    "path": "/signs/help.mp4",
+    "size_bytes": 3335434,
+    "duration_ms": 4000,
+    "category": "verb"
+  },
+  "homework": {
+    "path": "/signs/homework.mp4",
+    "size_bytes": 758491,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "i": {
+    "path": "/signs/i.mp4",
+    "size_bytes": 1870656,
+    "duration_ms": 4000,
+    "category": "pronoun"
+  },
+  "later": {
+    "path": "/signs/later.mp4",
+    "size_bytes": 144797,
+    "duration_ms": 4000,
+    "category": "time"
+  },
+  "learn": {
+    "path": "/signs/learn.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "listen": {
+    "path": "/signs/listen.mp4",
+    "size_bytes": 374200,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "no": {
+    "path": "/signs/no.mp4",
+    "size_bytes": 903734,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "now": {
+    "path": "/signs/now.mp4",
+    "size_bytes": 1237017,
+    "duration_ms": 4000,
+    "category": "time"
+  },
+  "open": {
+    "path": "/signs/open.mp4",
+    "size_bytes": 786276,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "pen": {
+    "path": "/signs/pen.mp4",
+    "size_bytes": 130185,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "please": {
+    "path": "/signs/please.mp4",
+    "size_bytes": 584537,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "question": {
+    "path": "/signs/question.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "read": {
+    "path": "/signs/read.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "repeat": {
+    "path": "/signs/repeat.mp4",
+    "size_bytes": 129425,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "school": {
+    "path": "/signs/school.mp4",
+    "size_bytes": 162429,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "she": {
+    "path": "/signs/she.mp4",
+    "size_bytes": 1237017,
+    "duration_ms": 4000,
+    "category": "pronoun"
+  },
+  "sit": {
+    "path": "/signs/sit.mp4",
+    "size_bytes": 665837,
+    "duration_ms": 4000,
+    "category": "verb"
+  },
+  "sorry": {
+    "path": "/signs/sorry.mp4",
+    "size_bytes": 3189986,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "stand": {
+    "path": "/signs/stand.mp4",
+    "size_bytes": 380497,
+    "duration_ms": 4000,
+    "category": "verb"
+  },
+  "start": {
+    "path": "/signs/start.mp4",
+    "size_bytes": 3372530,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "stop": {
+    "path": "/signs/stop.mp4",
+    "size_bytes": 87523,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "student": {
+    "path": "/signs/student.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "teacher": {
+    "path": "/signs/teacher.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "test": {
+    "path": "/signs/test.mp4",
+    "size_bytes": 1224402,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "thank you": {
+    "path": "/signs/thank_you.mp4",
+    "size_bytes": 2618176,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "they": {
+    "path": "/signs/they.mp4",
+    "size_bytes": 3372530,
+    "duration_ms": 4000,
+    "category": "pronoun"
+  },
+  "today": {
+    "path": "/signs/today.mp4",
+    "size_bytes": 162429,
+    "duration_ms": 4000,
+    "category": "time"
+  },
+  "tomorrow": {
+    "path": "/signs/tomorrow.mp4",
+    "size_bytes": 126077,
+    "duration_ms": 4000,
+    "category": "time"
+  },
+  "understand": {
+    "path": "/signs/understand.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "wait": {
+    "path": "/signs/wait.mp4",
+    "size_bytes": 129425,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "we": {
+    "path": "/signs/we.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "pronoun"
+  },
+  "write": {
+    "path": "/signs/write.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "wrong": {
+    "path": "/signs/wrong.mp4",
+    "size_bytes": 461125,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
+  "yes": {
+    "path": "/signs/yes.mp4",
+    "size_bytes": 3189986,
+    "duration_ms": 4000,
+    "category": "greeting"
+  },
+  "yesterday": {
+    "path": "/signs/yesterday.mp4",
+    "size_bytes": 162429,
+    "duration_ms": 4000,
+    "category": "time"
+  },
+  "you": {
+    "path": "/signs/you.mp4",
+    "size_bytes": 2263341,
+    "duration_ms": 4000,
+    "category": "pronoun"
   }
 }

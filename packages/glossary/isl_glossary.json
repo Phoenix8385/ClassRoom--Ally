@@ -301,14 +301,17 @@
     "has_clip": true,
     "category": "pronoun",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "me",
       "my",
       "mine",
       "myself"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:34:09.816048+00:00",
+    "source_url": "https://www.youtube.com/watch?v=U66xltPxeGw",
+    "source_title": "Greeting-I | Indian Sign Language"
   },
   "you": {
     "gloss": "YOU",
@@ -318,14 +321,17 @@
     "has_clip": true,
     "category": "pronoun",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "your",
       "yours",
       "yourself",
       "yourselves"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:34:28.665175+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "he": {
     "gloss": "HE",
@@ -351,13 +357,16 @@
     "has_clip": true,
     "category": "pronoun",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "her",
       "hers",
       "herself"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:35:04.769034+00:00",
+    "source_url": "https://www.youtube.com/watch?v=_HXSEBSVF94",
+    "source_title": "deaf Indian citizens demand government action now. Autonomous ISLRTC Now!"
   },
   "we": {
     "gloss": "WE",
@@ -367,14 +376,17 @@
     "has_clip": true,
     "category": "pronoun",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "us",
       "our",
       "ours",
       "ourselves"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:35:18.220141+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "they": {
     "gloss": "THEY",
@@ -384,14 +396,17 @@
     "has_clip": true,
     "category": "pronoun",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "them",
       "their",
       "theirs",
       "themselves"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:35:29.678193+00:00",
+    "source_url": "https://www.youtube.com/watch?v=i7CCQbWfiLs",
+    "source_title": "ISLRTC Big Update ISL Video Translation Started  Draft Guidelines Deadline Extended to 31August 2026"
   },
   "it": {
     "gloss": "IT",
@@ -500,9 +515,12 @@
     "has_clip": true,
     "category": "time",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:37:47.648933+00:00",
+    "source_url": "https://www.youtube.com/watch?v=5Z_Rm0W-HgE",
+    "source_title": "Indian Sign Language Research and Training Centre (ISLRTC)"
   },
   "yesterday": {
     "gloss": "YESTERDAY",
@@ -512,9 +530,12 @@
     "has_clip": true,
     "category": "time",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:38:11.767908+00:00",
+    "source_url": "https://www.youtube.com/watch?v=5Z_Rm0W-HgE",
+    "source_title": "Indian Sign Language Research and Training Centre (ISLRTC)"
   },
   "tomorrow": {
     "gloss": "TOMORROW",
@@ -524,9 +545,12 @@
     "has_clip": true,
     "category": "time",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:37:57.055313+00:00",
+    "source_url": "https://www.youtube.com/watch?v=QmWhfW8wyMs",
+    "source_title": "start, begin (sign 2)"
   },
   "now": {
     "gloss": "NOW",
@@ -536,9 +560,12 @@
     "has_clip": true,
     "category": "time",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:38:24.781795+00:00",
+    "source_url": "https://www.youtube.com/watch?v=_HXSEBSVF94",
+    "source_title": "deaf Indian citizens demand government action now. Autonomous ISLRTC Now!"
   },
   "later": {
     "gloss": "LATER",
@@ -548,9 +575,12 @@
     "has_clip": true,
     "category": "time",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:38:40.568516+00:00",
+    "source_url": "https://www.youtube.com/watch?v=LlpSiou4X7w",
+    "source_title": "elephant (sign 1)"
   },
   "before": {
     "gloss": "BEFORE",
@@ -1071,13 +1101,16 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "bye",
       "farewell",
       "see you"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:23:46.502454+00:00",
+    "source_url": "https://www.youtube.com/watch?v=8ViOycd624Y",
+    "source_title": "P-3 : \" GREETINGS ( HI, HELLO, BYE ) \" ll  INDIAN SIGN LANGUAGE   ll  SIGN LANGUAGE - P@thshala"
   },
   "good morning": {
     "gloss": "GOOD MORNING",
@@ -1087,11 +1120,14 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "morning greeting"
     ],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:23:54.660417+00:00",
+    "source_url": "https://www.youtube.com/watch?v=L37McuHckSI",
+    "source_title": "Good morning"
   },
   "good afternoon": {
     "gloss": "GOOD AFTERNOON",
@@ -1101,9 +1137,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:24:04.220036+00:00",
+    "source_url": "https://www.youtube.com/watch?v=YWQusITLYyE",
+    "source_title": "Greetings and Introduction | Indian Sign Language"
   },
   "good evening": {
     "gloss": "GOOD EVENING",
@@ -1137,13 +1176,16 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "thanks",
       "thankyou",
       "thank"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:24:12.807246+00:00",
+    "source_url": "https://www.youtube.com/watch?v=YWQusITLYyE",
+    "source_title": "Greetings and Introduction | Indian Sign Language"
   },
   "welcome": {
     "gloss": "WELCOME",
@@ -1167,9 +1209,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:24:36.574109+00:00",
+    "source_url": "https://www.youtube.com/watch?v=VBeqX1Hic6Y",
+    "source_title": "Seasons in Indian Sign Language ISL By PHIN Deaf"
   },
   "sorry": {
     "gloss": "SORRY",
@@ -1179,13 +1224,16 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "apology",
       "apologise",
       "apologize"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:24:46.156846+00:00",
+    "source_url": "https://www.youtube.com/watch?v=0JuVj8f2OTw",
+    "source_title": "Verb Signs  | Part 7 | Indian Sign Language l ISL By  PHIN Deaf"
   },
   "excuse me": {
     "gloss": "EXCUSE ME",
@@ -1210,9 +1258,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:24:55.920568+00:00",
+    "source_url": "https://www.youtube.com/watch?v=0JuVj8f2OTw",
+    "source_title": "Verb Signs  | Part 7 | Indian Sign Language l ISL By  PHIN Deaf"
   },
   "no": {
     "gloss": "NO",
@@ -1222,9 +1273,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:25:17.780619+00:00",
+    "source_url": "https://www.youtube.com/watch?v=a_YF5NMdfOc",
+    "source_title": "Ability"
   },
   "ok": {
     "gloss": "OK",
@@ -1262,9 +1316,12 @@
     "has_clip": true,
     "category": "verb",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:25:39.826536+00:00",
+    "source_url": "https://www.youtube.com/watch?v=zen2_BD09Gk",
+    "source_title": "Help Spread Indian Sign Language with DEF ISL App"
   },
   "stop": {
     "gloss": "STOP",
@@ -1274,9 +1331,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:36:25.981484+00:00",
+    "source_url": "https://www.youtube.com/watch?v=iIPlVtyY0D0",
+    "source_title": "Stop | ISL"
   },
   "wait": {
     "gloss": "WAIT",
@@ -1286,9 +1346,12 @@
     "has_clip": true,
     "category": "greeting",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:36:34.055717+00:00",
+    "source_url": "https://www.youtube.com/watch?v=aO1B2sAfigI",
+    "source_title": "again, repeat (sign 1)"
   },
   "ready": {
     "gloss": "READY",
@@ -1322,14 +1385,17 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "teachers",
       "sir",
       "madam",
       "instructor"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:25:59.149245+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "student": {
     "gloss": "STUDENT",
@@ -1339,14 +1405,17 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "students",
       "pupil",
       "pupils",
       "learner"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:26:28.878088+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "class": {
     "gloss": "CLASS",
@@ -1356,12 +1425,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "classroom",
       "classes"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:26:51.099370+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "school": {
     "gloss": "SCHOOL",
@@ -1371,9 +1443,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:27:32.670031+00:00",
+    "source_url": "https://www.youtube.com/watch?v=5Z_Rm0W-HgE",
+    "source_title": "Indian Sign Language Research and Training Centre (ISLRTC)"
   },
   "book": {
     "gloss": "BOOK",
@@ -1383,12 +1458,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "books",
       "textbook"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:29:41.464242+00:00",
+    "source_url": "https://www.youtube.com/watch?v=QBAQNVjLsY4",
+    "source_title": "Book in Indian Sign Language ISL By PHIN Deaf"
   },
   "pen": {
     "gloss": "PEN",
@@ -1398,9 +1476,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:30:01.616106+00:00",
+    "source_url": "https://www.youtube.com/watch?v=7Rq6uvvCPd0",
+    "source_title": "September"
   },
   "pencil": {
     "gloss": "PENCIL",
@@ -1497,9 +1578,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:30:17.686801+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "read": {
     "gloss": "READ",
@@ -1509,12 +1593,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "reading",
       "reads"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:30:35.762228+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "write": {
     "gloss": "WRITE",
@@ -1524,14 +1611,17 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "writing",
       "writes",
       "wrote",
       "written"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:31:00.320801+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "understand": {
     "gloss": "UNDERSTAND",
@@ -1541,13 +1631,16 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "understands",
       "understood",
       "understanding"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:31:15.757919+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "question": {
     "gloss": "QUESTION",
@@ -1557,12 +1650,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "questions",
       "doubt"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:31:36.566941+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "answer": {
     "gloss": "ANSWER",
@@ -1572,12 +1668,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "answers",
       "reply"
     ],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:32:01.733141+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "explain": {
     "gloss": "EXPLAIN",
@@ -1587,9 +1686,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:33:33.480481+00:00",
+    "source_url": "https://www.youtube.com/watch?v=qWcQkKcpeOI",
+    "source_title": "metaphor"
   },
   "test": {
     "gloss": "TEST",
@@ -1599,9 +1701,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:33:43.927865+00:00",
+    "source_url": "https://www.youtube.com/watch?v=aTndqo4TDlU",
+    "source_title": "Despair"
   },
   "exam": {
     "gloss": "EXAM",
@@ -1626,12 +1731,15 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "assignment",
       "assignments"
     ],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:33:57.127860+00:00",
+    "source_url": "https://www.youtube.com/watch?v=ADGho5mLPZc",
+    "source_title": "civics"
   },
   "correct": {
     "gloss": "CORRECT",
@@ -1641,9 +1749,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:32:13.915968+00:00",
+    "source_url": "https://www.youtube.com/watch?v=i7CCQbWfiLs",
+    "source_title": "ISLRTC Big Update ISL Video Translation Started  Draft Guidelines Deadline Extended to 31August 2026"
   },
   "wrong": {
     "gloss": "WRONG",
@@ -1653,9 +1764,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:32:35.577718+00:00",
+    "source_url": "https://www.youtube.com/watch?v=nHNeQL4k-Kw",
+    "source_title": "Meghalaya Sign in INDIAN SIGN LANGUAGE | ISL By PHIN Deaf"
   },
   "repeat": {
     "gloss": "REPEAT",
@@ -1665,9 +1779,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:32:51.082599+00:00",
+    "source_url": "https://www.youtube.com/watch?v=aO1B2sAfigI",
+    "source_title": "again, repeat (sign 1)"
   },
   "listen": {
     "gloss": "LISTEN",
@@ -1677,9 +1794,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:33:07.241920+00:00",
+    "source_url": "https://www.youtube.com/watch?v=e36q86lzzyM",
+    "source_title": "Face in Indian Sign Language ISL By PHIN Deaf"
   },
   "speak": {
     "gloss": "SPEAK",
@@ -1730,9 +1850,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:36:43.643275+00:00",
+    "source_url": "https://www.youtube.com/watch?v=mQQNlZEAZ-c",
+    "source_title": "Fish in ISL - Indian Sign Language"
   },
   "close": {
     "gloss": "CLOSE",
@@ -1742,9 +1865,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:37:02.408471+00:00",
+    "source_url": "https://www.youtube.com/watch?v=5Z_Rm0W-HgE",
+    "source_title": "Indian Sign Language Research and Training Centre (ISLRTC)"
   },
   "start": {
     "gloss": "START",
@@ -1754,9 +1880,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:37:11.468479+00:00",
+    "source_url": "https://www.youtube.com/watch?v=i7CCQbWfiLs",
+    "source_title": "ISLRTC Big Update ISL Video Translation Started  Draft Guidelines Deadline Extended to 31August 2026"
   },
   "finish": {
     "gloss": "FINISH",
@@ -1838,14 +1967,17 @@
     "has_clip": true,
     "category": "verb",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "going",
       "goes",
       "went",
       "gone"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:36:03.634559+00:00",
+    "source_url": "https://www.youtube.com/watch?v=RqddJENqoOY",
+    "source_title": "go"
   },
   "come": {
     "gloss": "COME",
@@ -1855,13 +1987,16 @@
     "has_clip": true,
     "category": "verb",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "coming",
       "comes",
       "came"
     ],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:36:12.536774+00:00",
+    "source_url": "https://www.youtube.com/watch?v=U66xltPxeGw",
+    "source_title": "Greeting-I | Indian Sign Language"
   },
   "sit": {
     "gloss": "SIT",
@@ -1871,13 +2006,16 @@
     "has_clip": true,
     "category": "verb",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "sitting",
       "sits",
       "sat"
     ],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:35:45.389025+00:00",
+    "source_url": "https://www.youtube.com/watch?v=lIs-vWLM714",
+    "source_title": "Start Menu"
   },
   "stand": {
     "gloss": "STAND",
@@ -1887,13 +2025,16 @@
     "has_clip": true,
     "category": "verb",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [
       "standing",
       "stands",
       "stood"
     ],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-12T18:35:54.277609+00:00",
+    "source_url": "https://www.youtube.com/watch?v=anfHebF8vhA",
+    "source_title": "Action Running in Indian Sign Language | ISL  By PHIN Deaf"
   },
   "eat": {
     "gloss": "EAT",
@@ -2507,9 +2648,12 @@
     "has_clip": true,
     "category": "adjective",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 1
+    "priority": 1,
+    "download_timestamp": "2026-08-12T18:39:14.798597+00:00",
+    "source_url": "https://www.youtube.com/watch?v=sLqdPipf1UM",
+    "source_title": "Learn Indian Sign Language - lesson 5 (Greetings)"
   },
   "bad": {
     "gloss": "BAD",
