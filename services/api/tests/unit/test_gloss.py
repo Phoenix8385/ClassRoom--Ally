@@ -106,8 +106,11 @@ def test_required_golden(text: str, expected: list[str]) -> None:
     ("The doctor helped the patient",    ["DOCTOR", "PATIENT", "HELP"]),
     ("She teaches mathematics",          ["SHE", "MATHEMATICS", "TEACH"]),
     ("I love you",                       ["I", "YOU", "LOVE"]),
-    # Embedded clause: the inner object comes forward with its own verb
-    ("We need to finish the homework",   ["WE", "HOMEWORK", "FINISH", "NEED"]),
+    # Embedded clause: the inner object comes forward with its own verb, and
+    # "need" is auxiliary here — the complement "finish" is the predicate.
+    ("We need to finish the homework",   ["WE", "HOMEWORK", "FINISH"]),
+    # ...but with a nominal object "need" is the predicate and must survive.
+    ("I need water",                     ["I", "WATER", "NEED"]),
     # WH questions
     ("Why are you late?",                ["YOU", "LATE", "WHY"]),
     ("How are you?",                     ["YOU", "HOW"]),

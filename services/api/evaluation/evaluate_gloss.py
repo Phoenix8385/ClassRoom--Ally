@@ -88,7 +88,33 @@ def _bootstrap_app_imports() -> None:
 _bootstrap_app_imports()
 
 from app.services import gloss as gloss_module  # noqa: E402
-from app.services.gloss import GlossService  # noqa: E402
+from app.services.gloss import GlossService, rules_available  # noqa: E402
+
+
+def preflight(allow_degraded: bool) -> bool:
+    """Abort unless the grammar rules can actually run. Returns True if healthy.
+
+    Without the spaCy model every gloss silently degrades to `_fallback_tokens`
+    — English word order, no lemmatisation. The resulting report looks like a
+    grammar problem (STUDENTS not lemmatised, GOING not reduced to GO) and is
+    not one, so scoring in that state is worse than not scoring at all.
+    """
+    if rules_available():
+        return True
+
+    message = (
+        "\n  The spaCy model 'en_core_web_sm' is NOT loadable in this interpreter.\n"
+        f"  Interpreter: {sys.executable}\n\n"
+        "  Every gloss would fall back to English word order with no lemmatisation,\n"
+        "  so the scores would measure the missing model, not the grammar rules.\n\n"
+        "  Fix:\n"
+        f"    {sys.executable} -m spacy download en_core_web_sm\n"
+    )
+    if not allow_degraded:
+        raise SystemExit(message + "\n  Or pass --allow-degraded to score anyway.\n")
+
+    print("WARNING: running DEGRADED —" + message)
+    return False
 
 # ── Normalisation ─────────────────────────────────────────────────────────────
 
@@ -282,6 +308,7 @@ def write_report(
     results: list[Result],
     data_path: Path,
     llm_enabled: bool,
+    healthy: bool = True,
 ) -> None:
     scorable = [r for r in results if r.expected]
     worst = sorted(scorable, key=lambda r: (r.token_accuracy, r.precision))[:WORST_EXAMPLES]
@@ -291,6 +318,16 @@ def write_report(
         "",
         f"_Generated {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}_",
         "",
+    ]
+    if not healthy:
+        lines += [
+            "> **DEGRADED RUN — DO NOT USE THESE NUMBERS.**",
+            "> The spaCy model `en_core_web_sm` was not loadable, so every sentence",
+            "> fell back to English word order with no lemmatisation. This measures",
+            "> the missing model, not the grammar rules.",
+            "",
+        ]
+    lines += [
         f"- **Corpus:** `{data_path}`",
         f"- **Sentences tested:** {stats['total']}",
         f"- **LLM fallback:** {'enabled' if llm_enabled else 'disabled (spaCy rules only)'}",
@@ -354,6 +391,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="show gloss-engine warnings (Redis misses, LLM fallbacks)",
     )
+    parser.add_argument(
+        "--allow-degraded",
+        action="store_true",
+        help="score even without the spaCy model (results measure the missing model)",
+    )
     return parser.parse_args()
 
 
@@ -372,6 +414,8 @@ def main() -> None:
         gloss_module._MIN_TOKENS = 0
         print("LLM fallback disabled — scoring the spaCy rule engine alone.")
 
+    healthy = preflight(args.allow_degraded)
+
     ensure_dataset(args.data)
     rows = load_rows(args.data, args.limit)
     print(f"Scoring {len(rows)} sentence(s) from {args.data}...")
@@ -381,7 +425,12 @@ def main() -> None:
     mistakes = collect_mistakes(results)
 
     print_summary(stats, mistakes)
-    write_report(stats, mistakes, results, args.data, llm_enabled=not args.no_llm)
+    if not healthy:
+        print("\n*** DEGRADED RUN — spaCy model missing. These numbers do not")
+        print("*** reflect the grammar rules. See the warning above.")
+    write_report(
+        stats, mistakes, results, args.data, llm_enabled=not args.no_llm, healthy=healthy
+    )
 
 
 if __name__ == "__main__":

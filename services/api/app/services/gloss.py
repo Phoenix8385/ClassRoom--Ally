@@ -63,6 +63,38 @@ _DROP_POS: frozenset[str] = frozenset(
 # VERB depending on the sentence; ISL has no politeness particle either way.
 _DROP_WORDS: frozenset[str] = frozenset({"please"})
 
+# Surface forms that carry no ISL sign when they act as function words.
+#
+# _DROP_POS is the primary signal and already covers every one of these when the
+# tagger is working. This set is the safety net for the two cases where it is
+# not: a mistagged token, and `_fallback_tokens` — which runs with no tagger at
+# all and would otherwise emit English word order with the articles still in.
+#
+# Two deliberate exclusions:
+#   - "well"/"okay" — only interjections some of the time ("she reads well" is
+#     an adverb). The INTJ tag in _DROP_POS catches the interjection reading
+#     without costing the adverb.
+#   - "this"/"that"/"these"/"those" — DET catches the determiner reading; the
+#     pronoun reading ("that is wrong") carries the subject and must survive.
+_FUNCTION_WORDS: frozenset[str] = frozenset(
+    {
+        "the", "a", "an",
+        "is", "am", "are", "was", "were", "be", "been", "being",
+        "do", "does", "did",
+        "have", "has", "had",
+        "will", "would", "shall", "should", "can", "could", "may", "might", "must",
+        "to",
+        "please", "oh", "hey",
+    }
+)
+
+# Verbs that behave like auxiliaries in ISL: when they support another verb they
+# carry no sign of their own, and the complement is the predicate. Only applied
+# when the complement really is verbal — with a nominal object the verb *is* the
+# predicate ("I need water" → I WATER NEED) and dropping it leaves a bare noun
+# phrase with nothing asserted about it.
+_AUXILIARY_MODAL_VERBS: frozenset[str] = frozenset({"need"})
+
 _WH_WORDS: frozenset[str] = frozenset(
     {"what", "where", "when", "why", "how", "who", "whom", "whose", "which"}
 )
@@ -162,6 +194,17 @@ def _get_nlp() -> spacy.Language | None:
     return _nlp
 
 
+def rules_available() -> bool:
+    """True when the spaCy pipeline is loaded and the grammar rules can run.
+
+    When this is False every gloss degrades to `_fallback_tokens`: English word
+    order, no lemmatisation, no SOV reordering. The output is still tokens, so
+    nothing downstream errors — which is exactly why this needs to be surfaced
+    on a health check rather than left to be inferred from bad output.
+    """
+    return _get_nlp() is not None
+
+
 # ── Token classification ──────────────────────────────────────────────────────
 
 @lru_cache(maxsize=1024)
@@ -209,7 +252,20 @@ def _should_drop(token: Token, *, has_root_verb: bool) -> bool:
     # book" → IT MY BOOK), so it only goes when there is a verb to lean on.
     if token.dep_ == "poss" and token.pos_ == "PRON" and has_root_verb:
         return True
-    return token.pos_ in _DROP_POS
+    if token.pos_ in _DROP_POS:
+        return True
+    # Surface-form safety net for a mistagged function word. Two exemptions:
+    # a token heading its own clause is the predicate and always signs (main-verb
+    # "have" in "I have three books" → I BOOK 3 HAVE; "do" in "I did not do my
+    # homework" → I HOMEWORK DO NOT), and a proper noun is a name that happens to
+    # collide with a function word ("May", "Will").
+    if (
+        token.lower_ in _FUNCTION_WORDS
+        and token.dep_ != "ROOT"
+        and token.pos_ != "PROPN"
+    ):
+        return True
+    return False
 
 
 def _gloss_token(token: Token, *, is_root: bool = False) -> str:
@@ -256,6 +312,22 @@ def _find_root_verb(doc: Doc) -> Token | None:
         if token.dep_ == "ROOT" and token.pos_ == "VERB":
             return token
     return None
+
+
+def _acts_as_auxiliary(root: Token) -> bool:
+    """True when the clause's root is a modal supporting another verb.
+
+    "We need to finish the homework" hangs "finish" off "need" as an xcomp, so
+    "finish" is the real predicate and "need" signs nothing. Contrast "I need
+    water", where the complement is nominal and "need" is all the predicate
+    there is.
+    """
+    if root.lower_ not in _AUXILIARY_MODAL_VERBS:
+        return False
+    return any(
+        child.pos_ == "VERB" and child.dep_ in {"xcomp", "ccomp"}
+        for child in root.children
+    )
 
 
 def _how_partner(token: Token) -> Token | None:
@@ -316,7 +388,8 @@ def _expand_object(head: Token, excluded: set[int], depth: int = 0) -> list[Toke
 
     "We need to finish the homework" hangs "homework" off "finish", not off the
     root — left alone it would strand after the verb. Recursing gives the
-    embedded clause the same object-then-verb shape: HOMEWORK FINISH NEED.
+    embedded clause the same object-then-verb shape: HOMEWORK FINISH. ("need"
+    itself is dropped by `_acts_as_auxiliary`, which runs at the root.)
     """
     if head.pos_ != "VERB" or depth >= _MAX_CLAUSE_DEPTH:
         return _slot_tokens(head, excluded)
@@ -389,7 +462,9 @@ def _apply_isl_rules(doc: Doc) -> list[str]:
         result = (
             [_gloss_token(t) for t in subject_tokens]
             + [_gloss_token(t) for t in object_tokens]
-            + [_gloss_token(root, is_root=True)]
+            # The root is emitted even when it is in drop_ids, because it is the
+            # predicate — unless it is a modal whose complement already carries it.
+            + ([] if _acts_as_auxiliary(root) else [_gloss_token(root, is_root=True)])
             + negations
             + trailing
         )
@@ -413,8 +488,21 @@ def gloss_sync(sentence: str) -> list[str]:
 
 
 def _fallback_tokens(sentence: str) -> list[str]:
-    """Last resort: the sentence's own words, uppercased and stripped of punctuation."""
-    return _dedupe([m.group(0).upper() for m in _WORD_RE.finditer(sentence)])
+    """Last resort: the sentence's own words, uppercased, function words removed.
+
+    Reached only when the spaCy model is unavailable *and* the LLM call fails.
+    There is no tagger here, so `_FUNCTION_WORDS` is the only filter available —
+    without it a viewer gets English word order with every article and copula
+    intact, which reads as broken ISL rather than degraded ISL.
+
+    This is a floor, not a grammar: no reordering happens, so the output is
+    still English word order. See the degraded-mode warning logged by `convert`.
+    """
+    words = [m.group(0) for m in _WORD_RE.finditer(sentence)]
+    kept = [w.upper() for w in words if w.lower() not in _FUNCTION_WORDS]
+    # A sentence of nothing but function words ("Is it?") must still surface
+    # something rather than going silent mid-lecture.
+    return _dedupe(kept or [w.upper() for w in words])
 
 
 # ── LLM fallback ──────────────────────────────────────────────────────────────
@@ -543,6 +631,16 @@ async def convert(sentence: str) -> list[str]:
         except Exception:
             logger.exception("LLM gloss fallback failed for: %r", text)
             tokens = tokens or _fallback_tokens(text)
+            # Both the rules and the LLM are gone, so this is English word order
+            # with the function words stripped — not ISL. Logged at WARNING per
+            # sentence because the alternative is a silent, plausible-looking
+            # stream of wrong signs in front of a Deaf student.
+            logger.warning(
+                "DEGRADED gloss for %r — grammar rules %s, LLM unavailable. "
+                "Output is unordered, unlemmatised English.",
+                text,
+                "unavailable (spaCy model missing)" if not rules_available() else "produced too few tokens",
+            )
 
     if tokens:
         await _cache_set(key, tokens)
