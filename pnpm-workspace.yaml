@@ -3,5 +3,8 @@ packages:
   - "services/*"
   - "packages/*"
 allowBuilds:
+  '@tsparticles/engine': false
+  react-particles: set this to true or false
   sharp: false
+  tsparticles-engine: set this to true or false
   unrs-resolver: false
