@@ -1895,9 +1895,12 @@
     "has_clip": true,
     "category": "classroom",
     "fingerspell_fallback": false,
-    "clip_downloaded": false,
+    "clip_downloaded": true,
     "aliases": [],
-    "priority": 2
+    "priority": 2,
+    "download_timestamp": "2026-08-16T13:39:41.957655+00:00",
+    "source_url": "https://www.youtube.com/watch?v=ZmWTOma8ti8",
+    "source_title": "Punjab Sign in INDIAN SIGN LANGUAGE | ISL By  PHIN Deaf"
   },
   "pass": {
     "gloss": "PASS",

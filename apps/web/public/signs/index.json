@@ -1,5 +1,5 @@
 {
-  "total": 49,
+  "total": 50,
   "words": [
     "answer",
     "book",
@@ -8,6 +8,7 @@
     "come",
     "correct",
     "explain",
+    "finish",
     "go",
     "good",
     "good afternoon",
@@ -62,6 +63,7 @@
       "close",
       "correct",
       "explain",
+      "finish",
       "homework",
       "learn",
       "listen",
@@ -114,6 +116,6 @@
       "stand"
     ]
   },
-  "last_updated": "2026-08-13T02:51:06+05:30",
-  "coverage_pct": 16.3
+  "last_updated": "2026-08-16T19:12:05+05:30",
+  "coverage_pct": 16.7
 }

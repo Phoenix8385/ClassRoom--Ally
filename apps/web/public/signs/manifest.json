@@ -41,6 +41,12 @@
     "duration_ms": 4000,
     "category": "classroom"
   },
+  "finish": {
+    "path": "/signs/finish.mp4",
+    "size_bytes": 483355,
+    "duration_ms": 4000,
+    "category": "classroom"
+  },
   "go": {
     "path": "/signs/go.mp4",
     "size_bytes": 106690,
