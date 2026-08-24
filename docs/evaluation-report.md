@@ -1,6 +1,6 @@
 # Gloss Engine Evaluation Report
 
-_Generated 2026-08-16 17:18 UTC_
+_Generated 2026-08-17 06:02 UTC_
 
 - **Corpus:** `C:\Users\Praveen Jawali\Desktop\major_project\ClassRoom--Ally\data\isltranslate\test.json`
 - **Sentences tested:** 20

@@ -1,0 +1,15 @@
+{
+  "name": "classroom-ally",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-time sign-language interpretation and avatar relay for inclusive classrooms.",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "type-check": "pnpm --filter web type-check",
+    "test": "pnpm --filter web test"
+  },
+  "packageManager": "pnpm@9.0.0"
+}

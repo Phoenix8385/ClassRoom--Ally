@@ -1,0 +1,1580 @@
+[
+  {
+    "word": "actor",
+    "class_index": 0,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "adult",
+    "class_index": 1,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "afternoon",
+    "class_index": 2,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "alive",
+    "class_index": 3,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "alright",
+    "class_index": 4,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "animal",
+    "class_index": 5,
+    "category": "Animals",
+    "in_include50": false
+  },
+  {
+    "word": "artist",
+    "class_index": 6,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "attack",
+    "class_index": 7,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "author",
+    "class_index": 8,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "baby",
+    "class_index": 9,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "bad",
+    "class_index": 10,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "bag",
+    "class_index": 11,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "ball",
+    "class_index": 12,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "bank",
+    "class_index": 13,
+    "category": "Places",
+    "in_include50": true
+  },
+  {
+    "word": "bathroom",
+    "class_index": 14,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "beautiful",
+    "class_index": 15,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "bed",
+    "class_index": 16,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "bedroom",
+    "class_index": 17,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "bicycle",
+    "class_index": 18,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "biglarge",
+    "class_index": 19,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "bill",
+    "class_index": 20,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "bird",
+    "class_index": 21,
+    "category": "Animals",
+    "in_include50": true
+  },
+  {
+    "word": "black",
+    "class_index": 22,
+    "category": "Colours",
+    "in_include50": true
+  },
+  {
+    "word": "blind",
+    "class_index": 23,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "blue",
+    "class_index": 24,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "boat",
+    "class_index": 25,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "book",
+    "class_index": 26,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "box",
+    "class_index": 27,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "boy",
+    "class_index": 28,
+    "category": "People",
+    "in_include50": true
+  },
+  {
+    "word": "brother",
+    "class_index": 29,
+    "category": "People",
+    "in_include50": true
+  },
+  {
+    "word": "brown",
+    "class_index": 30,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "bus",
+    "class_index": 31,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "camera",
+    "class_index": 32,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "car",
+    "class_index": 33,
+    "category": "Means_of_Transportation",
+    "in_include50": true
+  },
+  {
+    "word": "card",
+    "class_index": 34,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "cat",
+    "class_index": 35,
+    "category": "Animals",
+    "in_include50": false
+  },
+  {
+    "word": "cellphone",
+    "class_index": 36,
+    "category": "Electronics",
+    "in_include50": true
+  },
+  {
+    "word": "chair",
+    "class_index": 37,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "cheap",
+    "class_index": 38,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "child",
+    "class_index": 39,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "city",
+    "class_index": 40,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "clean",
+    "class_index": 41,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "clock",
+    "class_index": 42,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "clothing",
+    "class_index": 43,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "cold",
+    "class_index": 44,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "colour",
+    "class_index": 45,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "computer",
+    "class_index": 46,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "cool",
+    "class_index": 47,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "court",
+    "class_index": 48,
+    "category": "Places",
+    "in_include50": true
+  },
+  {
+    "word": "cow",
+    "class_index": 49,
+    "category": "Animals",
+    "in_include50": true
+  },
+  {
+    "word": "crowd",
+    "class_index": 50,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "curved",
+    "class_index": 51,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "daughter",
+    "class_index": 52,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "dead",
+    "class_index": 53,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "deaf",
+    "class_index": 54,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "death",
+    "class_index": 55,
+    "category": "Society",
+    "in_include50": true
+  },
+  {
+    "word": "deep",
+    "class_index": 56,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "dirty",
+    "class_index": 57,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "doctor",
+    "class_index": 58,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "dog",
+    "class_index": 59,
+    "category": "Animals",
+    "in_include50": true
+  },
+  {
+    "word": "door",
+    "class_index": 60,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "dream",
+    "class_index": 61,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "dress",
+    "class_index": 62,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "dry",
+    "class_index": 63,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "election",
+    "class_index": 64,
+    "category": "Society",
+    "in_include50": true
+  },
+  {
+    "word": "energy",
+    "class_index": 65,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "evening",
+    "class_index": 66,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "exercise",
+    "class_index": 67,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "exmonsoon",
+    "class_index": 68,
+    "category": "Seasons",
+    "in_include50": false
+  },
+  {
+    "word": "expensive",
+    "class_index": 69,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "fall",
+    "class_index": 70,
+    "category": "Seasons",
+    "in_include50": true
+  },
+  {
+    "word": "family",
+    "class_index": 71,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "famous",
+    "class_index": 72,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "fan",
+    "class_index": 73,
+    "category": "Electronics",
+    "in_include50": true
+  },
+  {
+    "word": "fast",
+    "class_index": 74,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "father",
+    "class_index": 75,
+    "category": "People",
+    "in_include50": true
+  },
+  {
+    "word": "female",
+    "class_index": 76,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "fish",
+    "class_index": 77,
+    "category": "Animals",
+    "in_include50": false
+  },
+  {
+    "word": "flat",
+    "class_index": 78,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "friday",
+    "class_index": 79,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "friend",
+    "class_index": 80,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "gift",
+    "class_index": 81,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "girl",
+    "class_index": 82,
+    "category": "People",
+    "in_include50": true
+  },
+  {
+    "word": "god",
+    "class_index": 83,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "good",
+    "class_index": 84,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "goodafternoon",
+    "class_index": 85,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "goodevening",
+    "class_index": 86,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "goodmorning",
+    "class_index": 87,
+    "category": "Greetings",
+    "in_include50": true
+  },
+  {
+    "word": "goodnight",
+    "class_index": 88,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "grandfather",
+    "class_index": 89,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "grandmother",
+    "class_index": 90,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "green",
+    "class_index": 91,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "grey",
+    "class_index": 92,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "ground",
+    "class_index": 93,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "gun",
+    "class_index": 94,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "happy",
+    "class_index": 95,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "hard",
+    "class_index": 96,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "hat",
+    "class_index": 97,
+    "category": "Clothes",
+    "in_include50": true
+  },
+  {
+    "word": "he",
+    "class_index": 98,
+    "category": "Pronouns",
+    "in_include50": false
+  },
+  {
+    "word": "healthy",
+    "class_index": 99,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "heavy",
+    "class_index": 100,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "hello",
+    "class_index": 101,
+    "category": "Greetings",
+    "in_include50": true
+  },
+  {
+    "word": "high",
+    "class_index": 102,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "horse",
+    "class_index": 103,
+    "category": "Animals",
+    "in_include50": false
+  },
+  {
+    "word": "hospital",
+    "class_index": 104,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "hot",
+    "class_index": 105,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "hour",
+    "class_index": 106,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "house",
+    "class_index": 107,
+    "category": "Places",
+    "in_include50": true
+  },
+  {
+    "word": "howareyou",
+    "class_index": 108,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "husband",
+    "class_index": 109,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "i",
+    "class_index": 110,
+    "category": "Pronouns",
+    "in_include50": true
+  },
+  {
+    "word": "india",
+    "class_index": 111,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "it",
+    "class_index": 112,
+    "category": "Pronouns",
+    "in_include50": true
+  },
+  {
+    "word": "job",
+    "class_index": 113,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "key",
+    "class_index": 114,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "king",
+    "class_index": 115,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "kitchen",
+    "class_index": 116,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "lamp",
+    "class_index": 117,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "laptop",
+    "class_index": 118,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "lawyer",
+    "class_index": 119,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "letter",
+    "class_index": 120,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "library",
+    "class_index": 121,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "light",
+    "class_index": 122,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "location",
+    "class_index": 123,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "lock",
+    "class_index": 124,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "long",
+    "class_index": 125,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "loose",
+    "class_index": 126,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "loud",
+    "class_index": 127,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "low",
+    "class_index": 128,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "male",
+    "class_index": 129,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "man",
+    "class_index": 130,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "manager",
+    "class_index": 131,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "market",
+    "class_index": 132,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "marriage",
+    "class_index": 133,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "mean",
+    "class_index": 134,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "medicine",
+    "class_index": 135,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "minute",
+    "class_index": 136,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "monday",
+    "class_index": 137,
+    "category": "Days_and_Time",
+    "in_include50": true
+  },
+  {
+    "word": "money",
+    "class_index": 138,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "month",
+    "class_index": 139,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "morning",
+    "class_index": 140,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "mother",
+    "class_index": 141,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "mouse",
+    "class_index": 142,
+    "category": "Animals",
+    "in_include50": false
+  },
+  {
+    "word": "narrow",
+    "class_index": 143,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "neighbour",
+    "class_index": 144,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "new",
+    "class_index": 145,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "newspaper",
+    "class_index": 146,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "nice",
+    "class_index": 147,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "night",
+    "class_index": 148,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "office",
+    "class_index": 149,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "old",
+    "class_index": 150,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "orange",
+    "class_index": 151,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "page",
+    "class_index": 152,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "paint",
+    "class_index": 153,
+    "category": "Home",
+    "in_include50": true
+  },
+  {
+    "word": "pant",
+    "class_index": 154,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "paper",
+    "class_index": 155,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "parent",
+    "class_index": 156,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "park",
+    "class_index": 157,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "patient",
+    "class_index": 158,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "peace",
+    "class_index": 159,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "pen",
+    "class_index": 160,
+    "category": "Home",
+    "in_include50": true
+  },
+  {
+    "word": "pencil",
+    "class_index": 161,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "photograph",
+    "class_index": 162,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "pink",
+    "class_index": 163,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "plane",
+    "class_index": 164,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "player",
+    "class_index": 165,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "pleased",
+    "class_index": 166,
+    "category": "Greetings",
+    "in_include50": false
+  },
+  {
+    "word": "pocket",
+    "class_index": 167,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "police",
+    "class_index": 168,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "poor",
+    "class_index": 169,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "president",
+    "class_index": 170,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "price",
+    "class_index": 171,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "priest",
+    "class_index": 172,
+    "category": "Jobs",
+    "in_include50": true
+  },
+  {
+    "word": "queen",
+    "class_index": 173,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "quiet",
+    "class_index": 174,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "raceethnicity",
+    "class_index": 175,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "radio",
+    "class_index": 176,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "red",
+    "class_index": 177,
+    "category": "Colours",
+    "in_include50": true
+  },
+  {
+    "word": "religion",
+    "class_index": 178,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "reporter",
+    "class_index": 179,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "restaurant",
+    "class_index": 180,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "rich",
+    "class_index": 181,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "ring",
+    "class_index": 182,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "sad",
+    "class_index": 183,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "saturday",
+    "class_index": 184,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "school",
+    "class_index": 185,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "science",
+    "class_index": 186,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "screen",
+    "class_index": 187,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "season",
+    "class_index": 188,
+    "category": "Seasons",
+    "in_include50": false
+  },
+  {
+    "word": "second",
+    "class_index": 189,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "secondnumber",
+    "class_index": 190,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "secretary",
+    "class_index": 191,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "shallow",
+    "class_index": 192,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "she",
+    "class_index": 193,
+    "category": "Pronouns",
+    "in_include50": false
+  },
+  {
+    "word": "shirt",
+    "class_index": 194,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "shoes",
+    "class_index": 195,
+    "category": "Clothes",
+    "in_include50": true
+  },
+  {
+    "word": "short",
+    "class_index": 196,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "sick",
+    "class_index": 197,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "sign",
+    "class_index": 198,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "sister",
+    "class_index": 199,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "skirt",
+    "class_index": 200,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "slow",
+    "class_index": 201,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "smalllittle",
+    "class_index": 202,
+    "category": "Adjectives",
+    "in_include50": true
+  },
+  {
+    "word": "soap",
+    "class_index": 203,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "soft",
+    "class_index": 204,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "soldier",
+    "class_index": 205,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "son",
+    "class_index": 206,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "sport",
+    "class_index": 207,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "spring",
+    "class_index": 208,
+    "category": "Seasons",
+    "in_include50": false
+  },
+  {
+    "word": "storeorshop",
+    "class_index": 209,
+    "category": "Places",
+    "in_include50": true
+  },
+  {
+    "word": "streetorroad",
+    "class_index": 210,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "strong",
+    "class_index": 211,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "student",
+    "class_index": 212,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "suit",
+    "class_index": 213,
+    "category": "Clothes",
+    "in_include50": false
+  },
+  {
+    "word": "summer",
+    "class_index": 214,
+    "category": "Seasons",
+    "in_include50": true
+  },
+  {
+    "word": "sunday",
+    "class_index": 215,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "table",
+    "class_index": 216,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "tall",
+    "class_index": 217,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "teacher",
+    "class_index": 218,
+    "category": "Jobs",
+    "in_include50": true
+  },
+  {
+    "word": "team",
+    "class_index": 219,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "technology",
+    "class_index": 220,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "telephone",
+    "class_index": 221,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "television",
+    "class_index": 222,
+    "category": "Electronics",
+    "in_include50": false
+  },
+  {
+    "word": "temple",
+    "class_index": 223,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "thankyou",
+    "class_index": 224,
+    "category": "Greetings",
+    "in_include50": true
+  },
+  {
+    "word": "they",
+    "class_index": 225,
+    "category": "Pronouns",
+    "in_include50": false
+  },
+  {
+    "word": "thick",
+    "class_index": 226,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "thin",
+    "class_index": 227,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "thursday",
+    "class_index": 228,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "tight",
+    "class_index": 229,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "time",
+    "class_index": 230,
+    "category": "Days_and_Time",
+    "in_include50": true
+  },
+  {
+    "word": "today",
+    "class_index": 231,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "tomorrow",
+    "class_index": 232,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "tool",
+    "class_index": 233,
+    "category": "Home",
+    "in_include50": false
+  },
+  {
+    "word": "train",
+    "class_index": 234,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "trainstation",
+    "class_index": 235,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "trainticket",
+    "class_index": 236,
+    "category": "Means_of_Transportation",
+    "in_include50": true
+  },
+  {
+    "word": "transportation",
+    "class_index": 237,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "truck",
+    "class_index": 238,
+    "category": "Means_of_Transportation",
+    "in_include50": false
+  },
+  {
+    "word": "tshirt",
+    "class_index": 239,
+    "category": "Clothes",
+    "in_include50": true
+  },
+  {
+    "word": "tuesday",
+    "class_index": 240,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "ugly",
+    "class_index": 241,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "university",
+    "class_index": 242,
+    "category": "Places",
+    "in_include50": false
+  },
+  {
+    "word": "waiter",
+    "class_index": 243,
+    "category": "Jobs",
+    "in_include50": false
+  },
+  {
+    "word": "war",
+    "class_index": 244,
+    "category": "Society",
+    "in_include50": false
+  },
+  {
+    "word": "warm",
+    "class_index": 245,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "we",
+    "class_index": 246,
+    "category": "Pronouns",
+    "in_include50": false
+  },
+  {
+    "word": "weak",
+    "class_index": 247,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "wednesday",
+    "class_index": 248,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "week",
+    "class_index": 249,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "wet",
+    "class_index": 250,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "white",
+    "class_index": 251,
+    "category": "Colours",
+    "in_include50": true
+  },
+  {
+    "word": "wide",
+    "class_index": 252,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "wife",
+    "class_index": 253,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "window",
+    "class_index": 254,
+    "category": "Home",
+    "in_include50": true
+  },
+  {
+    "word": "winter",
+    "class_index": 255,
+    "category": "Seasons",
+    "in_include50": false
+  },
+  {
+    "word": "woman",
+    "class_index": 256,
+    "category": "People",
+    "in_include50": false
+  },
+  {
+    "word": "year",
+    "class_index": 257,
+    "category": "Days_and_Time",
+    "in_include50": true
+  },
+  {
+    "word": "yellow",
+    "class_index": 258,
+    "category": "Colours",
+    "in_include50": false
+  },
+  {
+    "word": "yesterday",
+    "class_index": 259,
+    "category": "Days_and_Time",
+    "in_include50": false
+  },
+  {
+    "word": "you",
+    "class_index": 260,
+    "category": "Pronouns",
+    "in_include50": false
+  },
+  {
+    "word": "young",
+    "class_index": 261,
+    "category": "Adjectives",
+    "in_include50": false
+  },
+  {
+    "word": "youplural",
+    "class_index": 262,
+    "category": "Pronouns",
+    "in_include50": true
+  }
+]
